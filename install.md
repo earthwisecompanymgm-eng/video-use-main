@@ -24,25 +24,6 @@ Persists session memory in project.md so next week's session picks up where you 
 
 ## Quick Start
 
-```bash
-git clone https://github.com/browser-use/video-use.git
-cd video-use
-pip install -e .
-```
-
-## Platform-Specific Setup
-
-### macOS
-
-```bash
-# Dependencies
-brew install ffmpeg yt-dlp python-tk
-
-# Install
-git clone https://github.com/browser-use/video-use.git
-cd video-use
-pip install -e .
-```
 
 ### Windows
 
@@ -74,7 +55,7 @@ choco install yt-dlp
 sudo apt install ffmpeg python3-pip python3-venv yt-dlp
 
 # Install
-git clone https://github.com/browser-use/video-use.git
+git clone 
 cd video-use
 python3 -m venv .venv
 source .venv/bin/activate
