@@ -27,8 +27,8 @@ Drop raw footage in a folder, chat with Claude Code, get `final.mp4` back. Works
 
 ```powershell
 # 1. Clone the repository
-git clone https://github.com/browser-use/video-use.git
-cd video-use
+git clone 
+cd video-use-main
 
 # 2. Create and activate a virtual environment (recommended)
 python -m venv .venv
