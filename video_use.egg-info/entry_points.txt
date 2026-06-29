@@ -1,0 +1,2 @@
+[console_scripts]
+video-use = video_use:main
