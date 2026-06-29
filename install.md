@@ -11,18 +11,12 @@
 ## Quick Start
 
 ```bash
-git clone https://github.com/browser-use/video-use.git
+git clone 
 cd video-use
 pip install -e .
 ```
 
 ## Platform-Specific Setup
-
-### macOS
-
-```bash
-# Dependencies
-brew install ffmpeg yt-dlp python-tk
 
 # Install
 git clone 
