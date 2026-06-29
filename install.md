@@ -1,3 +1,17 @@
+
+video-use
+Introducing video-use — edit videos with Claude Code. 100% open source.
+
+Drop raw footage in a folder, chat with Claude Code, get final.mp4 back. Works for any content — talking heads, montages, tutorials, travel, interviews — without presets or menus.
+
+What it does
+Cuts out filler words (umm, uh, false starts) and dead space between takes
+Auto color grades every segment (warm cinematic, neutral punch, or any custom ffmpeg chain)
+30ms audio fades at every cut so you never hear a pop
+Burns subtitles in your style — 2-word UPPERCASE chunks by default, fully customizable
+Generates animation overlays via HyperFrames, Remotion, Manim, or PIL — spawned in parallel sub-agents, one per animation
+Self-evaluates the rendered output at every cut boundary before showing you anything
+Persists session memory in project.md so next week's session picks up where you left off
 # Installation
 
 ## Prerequisites
@@ -10,12 +24,32 @@
 
 ## Quick Start
 
+```bash
+git clone https://github.com/browser-use/video-use.git
+cd video-use
+pip install -e .
+```
+
+## Platform-Specific Setup
+
+### macOS
+
+```bash
+# Dependencies
+brew install ffmpeg yt-dlp python-tk
+
+# Install
+git clone https://github.com/browser-use/video-use.git
+cd video-use
+pip install -e .
+```
+
 ### Windows
 
 ```powershell
 # 1. Clone the repository
-git clone
-cd video-use-main
+git clone https://github.com/browser-use/video-use.git
+cd video-use
 
 # 2. Create and activate a virtual environment (recommended)
 python -m venv .venv
@@ -40,7 +74,7 @@ choco install yt-dlp
 sudo apt install ffmpeg python3-pip python3-venv yt-dlp
 
 # Install
-git clone
+git clone https://github.com/browser-use/video-use.git
 cd video-use
 python3 -m venv .venv
 source .venv/bin/activate

