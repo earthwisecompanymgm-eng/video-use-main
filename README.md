@@ -18,69 +18,53 @@ Drop raw footage in a folder, chat with Claude Code, get `final.mp4` back. Works
 - **Self-evaluates the rendered output** at every cut boundary before showing you anything
 - **Persists session memory** in `project.md` so next week's session picks up where you left off
 
-Installation
-Prerequisites
-Python 3.10 or later
-pip (included with Python)
-Git for cloning the repository
-ffmpeg — required for all video processing
-Node.js 18+ (optional, needed only for Remotion-based animations)
-Quick Start
-git clone 
-cd video-use
-pip install -e .
-Platform-Specific Setup
-Install
-git clone cd video-use-main pip install -e .
+## Setup prompt
 
+Paste into Claude Code, Codex, Hermes, Openclaw, or any agent with shell access:
 
+```text
+Set up https://github.com/browser-use/video-use for me.
 
-# 2. Create and activate a virtual environment (recommended)
-python -m venv .venv
-.venv\Scripts\activate
+Read install.md first to install this repo, wire up ffmpeg, register the skill with whichever agent you're running under, and set up the ElevenLabs API key — ask me to paste it when you need it. Then read SKILL.md for daily usage, and always read helpers/ because that's where the editing scripts live. After install, don't transcribe anything on your own — just tell me it's ready and wait for me to drop footage into a folder.
+```
 
-# 3. Install the package and its dependencies
-pip install -e .
+The agent handles the clone, dependencies, skill registration, and prompts you once for your ElevenLabs API key (grab one at [elevenlabs.io/app/settings/api-keys](https://elevenlabs.io/app/settings/api-keys)).
 
-# 4. Install ffmpeg
-# Download from https://ffmpeg.org/download.html and add the bin
-# directory to your PATH, or use:
-choco install ffmpeg
+Then point your agent at a folder of raw takes:
 
-# 5. (Optional) Install yt-dlp for downloading online sources
-choco install yt-dlp
-Create a .env file in the project root:
+```bash
+cd /path/to/your/videos
+claude    # or codex, hermes, etc.
+```
 
+For always-on editing from your own VPS or Telegram, run the agent through [Browser Use Box](https://browser-use.com/bux). [Watch the 15-second demo](https://www.tiktok.com/@browser_use/video/7639824093721758989).
+
+And in the session:
+
+> edit these into a launch video
+
+It inventories the sources, proposes a strategy, waits for your OK, then produces `edit/final.mp4` next to your sources. All outputs live in `<videos_dir>/edit/` — the skill directory stays clean.
+
+## Manual install
+
+If you'd rather do it by hand:
+
+```bash
+# 1. Clone and symlink into your agent's skills directory
+git clone https://github.com/browser-use/video-use ~/Developer/video-use
+ln -sfn ~/Developer/video-use ~/.claude/skills/video-use        # Claude Code
+# ln -sfn ~/Developer/video-use ~/.codex/skills/video-use       # Codex
+
+# 2. Install deps
+cd ~/Developer/video-use
+uv sync                         # or: pip install -e .
+brew install ffmpeg             # required
+brew install yt-dlp             # optional, for downloading online sources
+
+# 3. Add your ElevenLabs API key
 cp .env.example .env
-Add your ElevenLabs API key:
-
-ELEVENLABS_API_KEY=your_key_here
-Verifying the Installation
-python -c "import video_use; video_use.main()"
-If everything is configured correctly, you will see:
-
-video-use ready.
-Troubleshooting
-Issue	Solution
-ffmpeg not found	Ensure ffmpeg is installed and in your PATH: ffmpeg -version
-manim not found	Install with pip install manim and a LaTeX distribution
-ModuleNotFoundError	Verify you are in the project directory with an active virtual environment
-yt-dlp download failures	Update to the latest version: pip install -U yt-dlp
-Agent Integration
-Claude Code
-New-Item -ItemType SymbolicLink `
-  -Path "$HOME\.claude\skills\video-use" `
-  -Target "$(Resolve-Path .)"
-Codex
-ln -sfn "$(pwd)" ~/.codex/skills/video-use
-Other Agents
-Register the project root as a skill or plugin directory for your agent. The agent-specific instructions are documented in SKILL.md.
-
-Next Steps
-Read SKILL.md for daily usage and editing commands
-Drop raw footage into a folder
-Start your agent and point it at the folder
-The agent will handle transcription, editing, and rendering from there.
+$EDITOR .env                    # ELEVENLABS_API_KEY=...
+```
 
 ## How it works
 

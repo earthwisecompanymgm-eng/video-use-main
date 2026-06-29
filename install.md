@@ -11,19 +11,31 @@
 ## Quick Start
 
 ```bash
-git clone 
+git clone https://github.com/browser-use/video-use.git
 cd video-use
 pip install -e .
 ```
 
 ## Platform-Specific Setup
 
+### macOS
+
+```bash
+# Dependencies
+brew install ffmpeg yt-dlp python-tk
+
 # Install
-git clone 
-cd video-use-main
+git clone https://github.com/browser-use/video-use.git
+cd video-use
 pip install -e .
 ```
 
+### Windows
+
+```powershell
+# 1. Clone the repository
+git clone https://github.com/browser-use/video-use.git
+cd video-use
 
 # 2. Create and activate a virtual environment (recommended)
 python -m venv .venv
@@ -41,9 +53,43 @@ choco install ffmpeg
 choco install yt-dlp
 ```
 
+### Linux
 
+```bash
+# Dependencies
+sudo apt install ffmpeg python3-pip python3-venv yt-dlp
 
+# Install
+git clone https://github.com/browser-use/video-use.git
+cd video-use
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e .
+```
 
+## Optional Dependencies
+
+### Manim (Animation Support)
+
+For math equation animations and data visualizations:
+
+```bash
+pip install -e ".[animations]"
+```
+
+Requires a LaTeX distribution (e.g., [MiKTeX](https://miktex.org/) on Windows, `brew install latex` on macOS).
+
+### Remotion (Programmatic Animations)
+
+For React-based animation overlays:
+
+```bash
+cd skills/remotion
+npm install
+cd ../..
+```
+
+## Configuration
 
 Create a `.env` file in the project root:
 
