@@ -20,13 +20,44 @@ Drop raw footage in a folder, chat with Claude Code, get `final.mp4` back. Works
 
 ## Setup prompt
 
-Paste into Claude Code, Codex, Hermes, Openclaw, or any agent with shell access:
+## Quick Start
 
-```text
-Set up https://github.com/browser-use/video-use for me.
 
-Read install.md first to install this repo, wire up ffmpeg, register the skill with whichever agent you're running under, and set up the ElevenLabs API key — ask me to paste it when you need it. Then read SKILL.md for daily usage, and always read helpers/ because that's where the editing scripts live. After install, don't transcribe anything on your own — just tell me it's ready and wait for me to drop footage into a folder.
+### Windows
+
+```powershell
+# 1. Clone the repository
+git clone https://github.com/browser-use/video-use.git
+cd video-use
+
+# 2. Create and activate a virtual environment (recommended)
+python -m venv .venv
+.venv\Scripts\activate
+
+# 3. Install the package and its dependencies
+pip install -e .
+
+# 4. Install ffmpeg
+# Download from https://ffmpeg.org/download.html and add the bin
+# directory to your PATH, or use:
+choco install ffmpeg
+
+# 5. (Optional) Install yt-dlp for downloading online sources
+choco install yt-dlp
 ```
+
+### Linux
+
+```bash
+# Dependencies
+sudo apt install ffmpeg python3-pip python3-venv yt-dlp
+
+# Install
+git clone 
+cd video-use
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e .
 
 The agent handles the clone, dependencies, skill registration, and prompts you once for your ElevenLabs API key (grab one at [elevenlabs.io/app/settings/api-keys](https://elevenlabs.io/app/settings/api-keys)).
 
