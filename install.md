@@ -10,32 +10,12 @@
 
 ## Quick Start
 
-```bash
-git clone https://github.com/browser-use/video-use.git
-cd video-use
-pip install -e .
-```
-
-## Platform-Specific Setup
-
-### macOS
-
-```bash
-# Dependencies
-brew install ffmpeg yt-dlp python-tk
-
-# Install
-git clone https://github.com/browser-use/video-use.git
-cd video-use
-pip install -e .
-```
-
 ### Windows
 
 ```powershell
 # 1. Clone the repository
-git clone https://github.com/browser-use/video-use.git
-cd video-use
+git clone
+cd video-use-main
 
 # 2. Create and activate a virtual environment (recommended)
 python -m venv .venv
@@ -60,7 +40,7 @@ choco install yt-dlp
 sudo apt install ffmpeg python3-pip python3-venv yt-dlp
 
 # Install
-git clone https://github.com/browser-use/video-use.git
+git clone
 cd video-use
 python3 -m venv .venv
 source .venv/bin/activate
